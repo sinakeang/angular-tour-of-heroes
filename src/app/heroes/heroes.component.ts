@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {HEROES} from '../mock-heroes';
 import {Hero} from '../hero';
+import {HeroService} from '../hero.service';
 
 @Component({
   selector: 'app-heroes',
@@ -8,15 +8,26 @@ import {Hero} from '../hero';
   styleUrls: ['./heroes.component.scss']
 })
 export class HeroesComponent implements OnInit {
-  heroes = HEROES;
-  selectedHero: Hero;
+  heroes: Hero[];
 
-  constructor() { }
+  constructor(private heroService: HeroService) { }
 
+  // While you could call getHeroes() in the constructor
+  // that's not the best practice.
+  // Reserve the constructor for simple initialization
+  // such as wiring constructor parameters to properties.
+  // The constructor shouldn't do anything.
+  // It certainly shouldn't call a function that makes HTTP requests
+  // to a remote server as a real data service would.
+  // Instead call getHeroes() inside the ngOnInit lifecycle hook and
+  // let Angular call ngOnInit() at tan appropriate time after constructing
+  // a HeroesComponent instance.
   ngOnInit() {
+    this.getHeroes();
   }
 
-  onSelect(hero: Hero): void {
-    this.selectedHero = hero;
+  getHeroes(): void {
+    this.heroService.getHeroes()
+      .subscribe(heroes => this.heroes = heroes);
   }
 }
