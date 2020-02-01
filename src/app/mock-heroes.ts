@@ -12,3 +12,5 @@ export const HEROES: Hero[] = [
   { id: 19, name: 'Magma' },
   { id: 20, name: 'Tornado' }
 ];
+
+// Now that we have an In-memory Web API, we don't need this mock class anymore
