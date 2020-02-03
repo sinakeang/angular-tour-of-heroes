@@ -15,8 +15,8 @@ export class HeroSearchComponent implements OnInit {
    * A Subject is both a source of observable values
    * and an Observable itself.
    * You can subscribe to a Subject as you would any Observable.
-   *  You can also push values into that Observable
-   *  by calling its next(value) method.
+   * You can also push values into that Observable
+   * by calling its next(value) method.
    */
   private searchTerms = new Subject<string>();
 

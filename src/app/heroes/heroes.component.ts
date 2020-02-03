@@ -20,7 +20,7 @@ export class HeroesComponent implements OnInit {
   // It certainly shouldn't call a function that makes HTTP requests
   // to a remote server as a real data service would.
   // Instead call getHeroes() inside the ngOnInit lifecycle hook and
-  // let Angular call ngOnInit() at tan appropriate time after constructing
+  // let Angular call ngOnInit() at the appropriate time after constructing
   // a HeroesComponent instance.
   ngOnInit() {
     this.getHeroes();

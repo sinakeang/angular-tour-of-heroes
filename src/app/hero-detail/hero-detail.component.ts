@@ -11,7 +11,6 @@ import {Location} from '@angular/common';
 })
 export class HeroDetailComponent implements OnInit {
   @Input() hero: Hero;
-  // hero: Hero;
 
   // The ActivatedRoute holds information about the route
   // to this instance of the HeroDetailComponent. This component
